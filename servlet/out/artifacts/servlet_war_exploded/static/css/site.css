@@ -1,0 +1,45 @@
+body {
+    position: relative;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+.topContainer {
+    margin-top: 10px;
+    overflow: hidden;
+    width: 977px;
+}
+
+.title {
+    display: inline-block;
+    width: 150px;
+    height: 25px;
+    margin-left: 13px;
+}
+
+.titleModel {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin-left: 30px;
+}
+
+.bottomContainer {
+    padding: .5em;
+}
+
+
+.border {
+    margin: 2px 0px;
+    background-color: #666;
+    color: #fff;
+    font-weight: bold;
+    padding: 4px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: center;
+    width: fit-content;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

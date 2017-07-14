@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - master@localhost" uuid="97e84f25-9d9f-4a38-a602-b04abfdac572">
+      <secret-storage>master_key</secret-storage>
+      <user-name>aflak</user-name>
+      <schema-pattern>master.*</schema-pattern>
+      <default-schemas>master.*</default-schemas>
+    </data-source>
+    <data-source name="SQL Server - master@localhost" uuid="7e5f1a9c-418a-4cea-97e3-79d3b702b736">
+      <secret-storage>master_key</secret-storage>
+      <domain-auth>true</domain-auth>
+      <first-sync>true</first-sync>
+      <user-name>Adrian.Flak</user-name>
+      <schema-pattern>master.*</schema-pattern>
+      <default-schemas>master.*</default-schemas>
+    </data-source>
+  </component>
+</project>

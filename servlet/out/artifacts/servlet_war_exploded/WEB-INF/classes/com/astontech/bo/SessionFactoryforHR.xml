@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/master</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="com.astontech.bo.Address"/>
+    <mapping class="com.astontech.bo.Client"/>
+    <mapping class="com.astontech.bo.Clientcontact"/>
+    <mapping class="com.astontech.bo.Email"/>
+    <mapping class="com.astontech.bo.Employee"/>
+    <mapping class="com.astontech.bo.Employeeproject"/>
+    <mapping class="com.astontech.bo.Entitytype"/>
+    <mapping class="com.astontech.bo.Loyaltycompany"/>
+    <mapping class="com.astontech.bo.Person"/>
+    <mapping class="com.astontech.bo.Phone"/>
+    <mapping class="com.astontech.bo.Project"/>
+    <mapping class="com.astontech.bo.Projectstatus"/>
+    <mapping class="com.astontech.bo.Review"/>
+    <mapping class="com.astontech.bo.Reviewdata"/>
+    <mapping class="com.astontech.bo.Training"/>
+    <mapping class="com.astontech.bo.Trainingdata"/>
+    <mapping class="com.astontech.bo.Vehicle"/>
+    <mapping class="com.astontech.bo.Vehiclemake"/>
+    <mapping class="com.astontech.bo.Vehiclemodel"/>
+    <mapping class="com.astontech.bo.Vehiclestatus"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

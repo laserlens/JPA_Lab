@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sqljdbc42">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/01 - Database/Development Software/02 - OOP/Jar Libraries/sqljdbc_6.0/enu/jre8/sqljdbc42.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$USER_HOME$/Desktop/01 - Database/Development Software/02 - OOP/Jar Libraries/sqljdbc_6.0/enu/auth/x64" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>

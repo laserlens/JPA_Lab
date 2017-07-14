@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - master@localhost" uuid="97e84f25-9d9f-4a38-a602-b04abfdac572">
+    <database-info product="MySQL" version="5.7.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="master"/>
+    <table name="address" schema="" catalog="master" type="TABLE">
+      <column name="Addressid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="AddressNumber" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Street" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Street02" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Stateid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Countryid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="DateCreate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="Addressid"/>
+      <foreign-key name="FK_Clientid_Add" columns="Clientid" ref-table="client" ref-schema="" ref-catalog="master" ref-columns="Clientid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_Clientid_Add" unique="false" columns="Clientid"/>
+    </table>
+    <table name="client" schema="" catalog="master" type="TABLE">
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ClientName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="Clientid"/>
+      <exported-key name="FK_Clientid_Add" table="address" schema="" catalog="master" columns="Clientid"/>
+      <exported-key name="FK_Clientid" table="clientcontact" schema="" catalog="master" columns="Clientid"/>
+      <exported-key name="FK_Clientid_cc" table="clientcontact" schema="" catalog="master" columns="Clientid"/>
+      <exported-key name="FK_Clientid_Ph" table="phone" schema="" catalog="master" columns="Clientid"/>
+    </table>
+    <table name="clientcontact" schema="" catalog="master" type="TABLE">
+      <column name="ClientContactid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Clientid,EntityTypeid"/>
+      <foreign-key name="FK_Clientid" columns="Clientid" ref-table="client" ref-schema="" ref-catalog="master" ref-columns="Clientid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Clientid_cc" columns="Clientid" ref-table="client" ref-schema="" ref-catalog="master" ref-columns="Clientid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Personid_cc" columns="Personid" ref-table="person" ref-schema="" ref-catalog="master" ref-columns="Personid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_Personid_cc" unique="false" columns="Personid"/>
+    </table>
+    <table name="email" schema="" catalog="master" type="TABLE">
+      <column name="Emailid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EmailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Entityid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="employee" schema="" catalog="master" type="TABLE">
+      <column name="Title" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LastName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="EmailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="HireDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="LoyaltyCompany" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LoyaltyCompanyMemberNumber" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LoyaltyCompanyName" sqlType="VARBINARY" precision="50" scale="0" nullable="true" jdbcType="-3"/>
+      <column name="Termdate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="BirthDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="CreateDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="Personid" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="Employeeid"/>
+    </table>
+    <table name="employeeentity" schema="" catalog="master" type="TABLE">
+      <column name="EmployeeEntityid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EmployeeType" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="employeeproject" schema="" catalog="master" type="TABLE">
+      <column name="EmployeeProjectid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Projectid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Vehicleid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="StatDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="EndDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="Notes" sqlType="VARCHAR" precision="8000" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="entity" schema="" catalog="master" type="TABLE">
+      <column name="EntityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EntityName" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="EntityId"/>
+    </table>
+    <table name="entitytype" schema="" catalog="master" type="TABLE">
+      <column name="EntityID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EntityName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EntityType" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EntityTypeName" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="EntityID"/>
+    </table>
+    <table name="loyaltycompany" schema="" catalog="master" type="TABLE">
+      <column name="LoyaltyCompanyid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="LoyaltyCompanyName" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LoyaltyCompanyMemberNumber" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Entityid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="person" schema="" catalog="master" type="TABLE">
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Title" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LastName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="DisplayFirstName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsDelete" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="Personid"/>
+      <exported-key name="FK_Personid_cc" table="clientcontact" schema="" catalog="master" columns="Personid"/>
+    </table>
+    <table name="phone" schema="" catalog="master" type="TABLE">
+      <column name="Phoneid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Personid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="AreaCode" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PhoneNumber" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PhoneNumberPost" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Phoneid"/>
+      <foreign-key name="FK_Clientid_Ph" columns="Clientid" ref-table="client" ref-schema="" ref-catalog="master" ref-columns="Clientid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_Clientid_Ph" unique="false" columns="Clientid"/>
+    </table>
+    <table name="project" schema="" catalog="master" type="TABLE">
+      <column name="Projectid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Clientid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Rate" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="StartDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="EndDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ProjectName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="projectstatus" schema="" catalog="master" type="TABLE">
+      <column name="ProjectStatusid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Projectid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Notes" sqlType="VARCHAR" precision="800" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PercentComplete" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="StartDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="EndDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="review" schema="" catalog="master" type="TABLE">
+      <column name="Reviewid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ReviewName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ReviewDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="reviewdata" schema="" catalog="master" type="TABLE">
+      <column name="ReviewDataid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Reviewid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ReviewDataVale" sqlType="VARCHAR" precision="8000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="training" schema="" catalog="master" type="TABLE">
+      <column name="Trainingid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Employeeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TrainingName" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="trainingdata" schema="" catalog="master" type="TABLE">
+      <column name="TrainingDateid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Trainingid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TrainingDataValue" sqlType="VARCHAR" precision="8000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="vehicle" schema="" catalog="master" type="TABLE">
+      <column name="Vehicleid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Year" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="LicensePlate" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="VIN" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Color" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsPurchase" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="PurchasePrice" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PurchaseDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="VehicleModelid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Vehicleid"/>
+    </table>
+    <table name="vehiclemake" schema="" catalog="master" type="TABLE">
+      <column name="VehicleMakeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="VehicleMakeName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="VehicleMakeid"/>
+    </table>
+    <table name="vehiclemodel" schema="" catalog="master" type="TABLE">
+      <column name="VehicleModelid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="VehicleModelName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="VehicleMakeid" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="VehicleModelid"/>
+    </table>
+    <table name="vehiclestatus" schema="" catalog="master" type="TABLE">
+      <column name="VehicleStatusid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Vehicleid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EntityTypeid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Notes" sqlType="VARCHAR" precision="8000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+  </data-source>
+  <data-source name="SQL Server - master@localhost" uuid="7e5f1a9c-418a-4cea-97e3-79d3b702b736">
+    <database-info product="Microsoft SQL Server" version="11.00.3156" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+      <extra-name-characters>$#@</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+  </data-source>
+</component>
